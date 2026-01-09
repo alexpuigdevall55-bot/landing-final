@@ -8,6 +8,48 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Brevo Form Styles -->
+    <style>
+        @font-face {
+            font-display: block;
+            font-family: Roboto;
+            src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
+        }
+
+        @font-face {
+            font-display: fallback;
+            font-family: Roboto;
+            font-weight: 600;
+            src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
+        }
+
+        @font-face {
+            font-display: fallback;
+            font-family: Roboto;
+            font-weight: 700;
+            src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
+        }
+
+        #sib-container input:-ms-input-placeholder {
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+            color: #c0ccda;
+        }
+
+        #sib-container input::placeholder {
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+            color: #c0ccda;
+        }
+
+        #sib-container a {
+            text-decoration: underline;
+            color: #2BB2FC;
+        }
+    </style>
+    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+    
     <style>
         * {
             margin: 0;
@@ -358,75 +400,14 @@
             z-index: 1;
         }
         
-        .cta-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
+        /* Brevo form custom styles */
+        .input--hidden {
+            display: none !important;
         }
         
-        .cta-section p {
-            font-size: 1.2em;
-            opacity: 0.95;
-            margin-bottom: 40px;
-        }
-        
-        /* Waitlist Form */
-        .waitlist-form {
-            display: flex;
-            gap: 15px;
-            max-width: 500px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .waitlist-form input {
-            flex: 1;
-            min-width: 250px;
-            padding: 16px 20px;
-            border: none;
-            border-radius: 10px;
-            font-size: 1em;
-            font-family: inherit;
-        }
-        
-        .waitlist-form button {
-            padding: 16px 32px;
-            background: var(--color-gray-dark);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-        
-        .waitlist-form button:hover {
-            background: var(--color-blue-navy);
-            transform: translateY(-2px);
-        }
-        
-        .form-note {
-            width: 100%;
-            text-align: center;
-            font-size: 0.9em;
-            opacity: 0.9;
-            margin-top: 15px;
-        }
-        
-        .success-message {
-            display: none;
-            padding: 20px;
-            background: rgba(16, 185, 129, 0.2);
-            border-radius: 10px;
-            margin-top: 20px;
-            font-weight: 600;
-        }
-        
-        .success-message.show {
+        #sib-container .entry__error {
             display: block;
-            animation: fadeInUp 0.5s ease;
+            margin-top: 10px;
         }
         
         /* Footer */
@@ -503,14 +484,6 @@
             
             .pilares-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .waitlist-form {
-                flex-direction: column;
-            }
-            
-            .waitlist-form input {
-                min-width: 100%;
             }
         }
     </style>
@@ -670,111 +643,45 @@
     <!-- CTA / Waitlist Section -->
     <section class="cta-section" id="waitlist">
         <div class="cta-content">
-            <h2>Únete a la Revolución Financiera</h2>
-            <p>
-                Sé de los primeros en probar Finwise. Lanzamiento en Beta: Mayo 2025
-            </p>
-            
-            <form class="waitlist-form" id="waitlistForm">
-                <input 
-                    type="email" 
-                    id="emailInput"
-                    placeholder="tu@email.com" 
-                    required
-                >
-                <button type="submit">Unirme a la Beta</button>
-                <p class="form-note">
-                    🎁 Los primeros 50 usuarios tendrán acceso lifetime a precio especial
-                </p>
-            </form>
-            
-            <div class="success-message" id="successMessage">
-                ✓ ¡Genial! Te hemos añadido a la lista. Revisa tu email para confirmar.
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Finwise</h4>
-                <p>Tu asistente financiero inteligente que hace las finanzas accesibles para todos.</p>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Producto</h4>
-                <a href="#pilares">Características</a>
-                <a href="#beneficios">Beneficios</a>
-                <a href="#waitlist">Beta</a>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <a href="#">Política de Privacidad</a>
-                <a href="#">Términos y Condiciones</a>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Contacto</h4>
-                <a href="mailto:hola@finwise.es">hola@finwise.es</a>
-                <p>Barcelona, España</p>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 Finwise. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Waitlist form handling
-        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('emailInput').value;
-            const successMessage = document.getElementById('successMessage');
-            
-            // Aquí integrarías con tu backend o servicio de email marketing
-            // Por ahora, solo mostramos el mensaje de éxito
-            
-            console.log('Email registrado:', email);
-            
-            // Mostrar mensaje de éxito
-            successMessage.classList.add('show');
-            
-            // Limpiar el formulario
-            document.getElementById('emailInput').value = '';
-            
-            // Ocultar mensaje después de 5 segundos
-            setTimeout(function() {
-                successMessage.classList.remove('show');
-            }, 5000);
-        });
-
-        // Smooth scroll para los enlaces internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+            <!-- BEGIN BREVO FORM -->
+            <div class="sib-form" style="text-align: center; background-color: transparent;">
+                <div id="sib-form-container" class="sib-form-container">
+                    <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; background-color:rgba(30, 91, 184, 0.1); max-width:600px; border-radius:16px; border:none; padding: 40px 30px; backdrop-filter: blur(10px); margin: 0 auto;">
+                        <form id="sib-form" method="POST" action="https://a8f2ea85.sibforms.com/serve/MUIFACVdNeX-7_cyvasTIIbdeLwpl0Z94hXUhXsjsTSsAQAErJ4Hnbp374njK9B0A_8fiUKfWj4gL1hG-PY8AOwAhZGoy7pIFvqolIuQKGSNUCapb8BevVLqJCuD1o0SACJl_HjssqUEJ1_E3O16Vejpl9fK9v8ISO0p02iIwR_akPKQWBDSqlnvcTwLYmpmuAYqydW25uzecI_P0w==">
+                            <div style="padding: 8px 0;">
+                                <div class="sib-form-block" style="font-size:2.5em; text-align:center; font-weight:700; font-family:'Inter', sans-serif; color:#ffffff; margin-bottom: 20px;">
+                                    <p style="margin: 0;">Únete a la Revolución Financiera</p>
+                                </div>
+                            </div>
+                            <div style="padding: 8px 0;">
+                                <div class="sib-form-block" style="font-size:1.2em; text-align:center; font-family:'Inter', sans-serif; color:#ffffff; opacity: 0.95; margin-bottom: 30px;">
+                                    <div class="sib-text-form-block">
+                                        <p style="margin: 0;">Sé de los primeros en probar Finwise. Lanzamiento en Beta: Mayo 2025</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="padding: 8px 0;">
+                                <div class="sib-input sib-form-block">
+                                    <div class="form__entry entry_block">
+                                        <div class="form__label-row">
+                                            <div class="entry__field">
+                                                <input class="input" style="padding: 16px 20px; border: none; border-radius: 10px; font-size: 1em; font-family: 'Inter', sans-serif; width: 100%; max-width: 400px;" type="email" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="tu@email.com" data-required="true" required />
+                                            </div>
+                                        </div>
+                                        <label class="entry__error entry__error--primary" style="font-size:14px; text-align:center; font-family:'Inter', sans-serif; color:#ff4949; margin-top: 10px;"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="padding: 8px 0;">
+                                <div class="sib-form-block" style="text-align: center">
+                                    <button class="sib-form-block__button sib-form-block__button-with-loader" style="padding: 16px 32px; background: #1a3a52; color: white; border: none; border-radius: 10px; font-weight: 600; font-size: 1em; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.3s ease;" form="sib-form" type="submit" onmouseover="this.style.background='#003d7a'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#1a3a52'; this.style.transform='translateY(0)'">
+                                        <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style="display: none;">
+                                            <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+                                        </svg>
+                                        UNIRME A LA BETA
+                                    </button>
+                                </div>
+                            </div>
+                            <div style="padding: 8px 0; margin-top: 15px;">
+                                <p style="color: white; font-size: 0.9em; opacity: 0.9; margin: 0; font-family: 'Inter', sans-serif;">
+                                
