@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finwise - Tu Asistente Financiero Inteligente</title>
+    <meta name="description" content="Optimiza impuestos, planifica objetivos y aprende a invertir. Todo en un solo lugar con inteligencia artificial.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Brevo Form Styles -->
+    <style>
+        @font-face {
+            font-display: block;
+            font-family: Roboto;
+            src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
+        }
+
+        @font-face {
+            font-display: fallback;
+            font-family: Roboto;
+            font-weight: 600;
+            src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
+        }
+
+        @font-face {
+            font-display: fallback;
+            font-family: Roboto;
+            font-weight: 700;
+            src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
+        }
+
+        #sib-container input:-ms-input-placeholder {
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+            color: #c0ccda;
+        }
+
+        #sib-container input::placeholder {
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+            color: #c0ccda;
+        }
+
+        #sib-container a {
+            text-decoration: underline;
+            color: #2BB2FC;
+        }
+    </style>
+    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-blue-navy: #003d7a;
+            --color-blue-primary: #0066cc;
+            --color-blue-vibrant: #1e5bb8;
+            --color-cyan-bright: #00d4ff;
+            --color-blue-light: #66b3ff;
+            --color-blue-pastel: #e6f2ff;
+            --color-white: #ffffff;
+            --color-gray-dark: #1a3a52;
+            --color-gray-medium: #64748b;
+            --color-success: #10b981;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--color-gray-dark);
+            overflow-x: hidden;
+        }
+        
+        /* Header/Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--color-blue-vibrant);
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-blue-vibrant) 0%, var(--color-cyan-bright) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+        
+        .nav-cta {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--color-blue-vibrant) 0%, var(--color-cyan-bright) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(30, 91, 184, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-blue-vibrant) 0%, var(--color-cyan-bright) 100%);
+            padding: 140px 20px 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+        
+        .hero .description {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 36px;
+            background: white;
+            color: var(--color-blue-vibrant);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+        
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+            animation: fadeInUp 0.8s ease 0.8s backwards;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .stat-label {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Section */
+        section {
+            padding: 80px 20px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--color-gray-dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2em;
+            color: var(--color-gray-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Pilares */
+        .pilares {
+            background: #f8fafc;
+        }
+        
+        .pilares-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .pilar-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pilar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--color-blue-vibrant) 0%, var(--color-cyan-bright) 100%);
+        }
+        
+        .pilar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .pilar-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--color-blue-vibrant) 0%, var(--color-cyan-bright) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            margin-bottom: 25px;
+        }
+        
+        .pilar-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: var(--color-gray-dark);
+        }
+        
+        .pilar-card p {
+            color: var(--color-gray-medium);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .pilar-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .pilar-features li {
+            padding: 8px 0;
+            color: var(--color-gray-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pilar-features li::before {
+            content: '✓';
+            color: var(--color-success);
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+        
+        /* Beneficios */
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .beneficio {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .beneficio-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .beneficio h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: var(--color-gray-dark);
+        }
+        
+        .beneficio p {
+            color: var(--color-gray-medium);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-blue-vibrant) 0%, var(--color-cyan-bright) 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Brevo form custom styles */
+        .input--hidden {
+            display: none !important;
+        }
+        
+        #sib-container .entry__error {
+            display: block;
+            margin-top: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--color-gray-dark);
+            color: white;
+            padding: 60px 20px 30px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--color-cyan-bright);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2em;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .section-title {
+                font-size: 2em;
+            }
+            
+            .pilares-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">💡</div>
+                Finwise
+            </a>
+            <a href="#waitlist" class="nav-cta">Únete a la Beta</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Tu Asistente Financiero Inteligente</h1>
+            <p class="subtitle">Optimiza impuestos, planifica objetivos y aprende a invertir</p>
+            <p class="description">
+                Finwise utiliza inteligencia artificial para ayudarte a tomar mejores decisiones financieras. 
+                Sin conocimientos previos necesarios.
+            </p>
+            <a href="#waitlist" class="hero-cta">
+                Únete a la Lista de Espera
+                <span>→</span>
+            </a>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">1.240€</span>
+                    <span class="stat-label">Ahorro promedio anual</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Pilares integrados</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Asistente IA disponible</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pilares Section -->
+    <section class="pilares">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Todo lo que necesitas en un solo lugar</h2>
+                <p class="section-subtitle">
+                    Finwise integra tres pilares fundamentales para tu salud financiera
+                </p>
+            </div>
+            
+            <div class="pilares-grid">
+                <div class="pilar-card">
+                    <div class="pilar-icon">💰</div>
+                    <h3>Ahorro Fiscal</h3>
+                    <p>
+                        Descubre deducciones que desconocías y optimiza tu declaración de la renta automáticamente.
+                    </p>
+                    <ul class="pilar-features">
+                        <li>Análisis fiscal inteligente</li>
+                        <li>Identificación de deducciones</li>
+                        <li>Ahorro estimado en euros</li>
+                        <li>Chat IA fiscal 24/7</li>
+                        <li>Optimización de gastos</li>
+                    </ul>
+                </div>
+                
+                <div class="pilar-card">
+                    <div class="pilar-icon">🎯</div>
+                    <h3>Planificación Financiera</h3>
+                    <p>
+                        Define objetivos claros y descubre cómo alcanzarlos con simulaciones inteligentes.
+                    </p>
+                    <ul class="pilar-features">
+                        <li>Objetivos personalizados</li>
+                        <li>Simulador con IA</li>
+                        <li>Múltiples escenarios</li>
+                        <li>Seguimiento de progreso</li>
+                        <li>Recomendaciones accionables</li>
+                    </ul>
+                </div>
+                
+                <div class="pilar-card">
+                    <div class="pilar-icon">📈</div>
+                    <h3>Educación en Inversión</h3>
+                    <p>
+                        Aprende a invertir de forma sencilla con contenido educativo y simulaciones sin riesgo.
+                    </p>
+                    <ul class="pilar-features">
+                        <li>Perfil de riesgo personalizado</li>
+                        <li>Contenido educativo interactivo</li>
+                        <li>Simulador de rentabilidad</li>
+                        <li>Estrategias según tu perfil</li>
+                        <li>Chat IA educativo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios Section -->
+    <section class="beneficios">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">¿Por qué Finwise?</h2>
+                <p class="section-subtitle">
+                    Democratizamos el acceso a la gestión financiera inteligente
+                </p>
+            </div>
+            
+            <div class="beneficios-grid">
+                <div class="beneficio">
+                    <div class="beneficio-icon">🤖</div>
+                    <h3>Inteligencia Artificial</h3>
+                    <p>Recomendaciones personalizadas basadas en tu situación única</p>
+                </div>
+                
+                <div class="beneficio">
+                    <div class="beneficio-icon">📚</div>
+                    <h3>Educación Accesible</h3>
+                    <p>Aprende finanzas sin jerga complicada, a tu ritmo</p>
+                </div>
+                
+                <div class="beneficio">
+                    <div class="beneficio-icon">💡</div>
+                    <h3>Claridad Total</h3>
+                    <p>Visualiza tu situación financiera de forma simple y clara</p>
+                </div>
+                
+                <div class="beneficio">
+                    <div class="beneficio-icon">🎯</div>
+                    <h3>Orientado a Objetivos</h3>
+                    <p>Convierte sueños en planes alcanzables con pasos concretos</p>
+                </div>
+                
+                <div class="beneficio">
+                    <div class="beneficio-icon">🔒</div>
+                    <h3>Seguro y Privado</h3>
+                    <p>Tus datos están protegidos con los más altos estándares</p>
+                </div>
+                
+                <div class="beneficio">
+                    <div class="beneficio-icon">💰</div>
+                    <h3>Precio Accesible</h3>
+                    <p>Desde 5€/mes. Tu inversión con mejor ROI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Waitlist Section -->
+    <section class="cta-section" id="waitlist">
+        <div class="cta-content">
+            <!-- BEGIN BREVO FORM -->
+            <div class="sib-form" style="text-align: center; background-color: transparent;">
+                <div id="sib-form-container" class="sib-form-container">
+                    <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; background-color:rgba(30, 91, 184, 0.1); max-width:600px; border-radius:16px; border:none; padding: 40px 30px; backdrop-filter: blur(10px); margin: 0 auto;">
+                        <form id="sib-form" method="POST" action="https://a8f2ea85.sibforms.com/serve/MUIFACVdNeX-7_cyvasTIIbdeLwpl0Z94hXUhXsjsTSsAQAErJ4Hnbp374njK9B0A_8fiUKfWj4gL1hG-PY8AOwAhZGoy7pIFvqolIuQKGSNUCapb8BevVLqJCuD1o0SACJl_HjssqUEJ1_E3O16Vejpl9fK9v8ISO0p02iIwR_akPKQWBDSqlnvcTwLYmpmuAYqydW25uzecI_P0w==">
+                            <div style="padding: 8px 0;">
+                                <div class="sib-form-block" style="font-size:2.5em; text-align:center; font-weight:700; font-family:'Inter', sans-serif; color:#ffffff; margin-bottom: 20px;">
+                                    <p style="margin: 0;">Únete a la Revolución Financiera</p>
+                                </div>
+                            </div>
+                            <div style="padding: 8px 0;">
+                                <div class="sib-form-block" style="font-size:1.2em; text-align:center; font-family:'Inter', sans-serif; color:#ffffff; opacity: 0.95; margin-bottom: 30px;">
+                                    <div class="sib-text-form-block">
+                                        <p style="margin: 0;">Sé de los primeros en probar Finwise. Lanzamiento en Beta: Mayo 2025</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="padding: 8px 0;">
+                                <div class="sib-input sib-form-block">
+                                    <div class="form__entry entry_block">
+                                        <div class="form__label-row">
+                                            <div class="entry__field">
+                                                <input class="input" style="padding: 16px 20px; border: none; border-radius: 10px; font-size: 1em; font-family: 'Inter', sans-serif; width: 100%; max-width: 400px;" type="email" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="tu@email.com" data-required="true" required />
+                                            </div>
+                                        </div>
+                                        <label class="entry__error entry__error--primary" style="font-size:14px; text-align:center; font-family:'Inter', sans-serif; color:#ff4949; margin-top: 10px;"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="padding: 8px 0;">
+                                <div class="sib-form-block" style="text-align: center">
+                                    <button class="sib-form-block__button sib-form-block__button-with-loader" style="padding: 16px 32px; background: #1a3a52; color: white; border: none; border-radius: 10px; font-weight: 600; font-size: 1em; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.3s ease;" form="sib-form" type="submit" onmouseover="this.style.background='#003d7a'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#1a3a52'; this.style.transform='translateY(0)'">
+                                        <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style="display: none;">
+                                            <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+                                        </svg>
+                                        UNIRME A LA BETA
+                                    </button>
+                                </div>
+                            </div>
+                            <div style="padding: 8px 0; margin-top: 15px;">
+                                <p style="color: white; font-size: 0.9em; opacity: 0.9; margin: 0; font-family: 'Inter', sans-serif;">
+                                    🎁 Los primeros 50 usuarios tendrán acceso lifetime a precio especial
+                                </p>
+                            </div>
+                            <input type="text" name="email_address_check" value="" class="input--hidden">
+                            <input type="hidden" name="locale" value="es">
+                            <input type="hidden" name="html_type" value="simple">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- END BREVO FORM -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Finwise</h4>
+                <p>Tu asistente financiero inteligente que hace las finanzas accesibles para todos.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Producto</h4>
+                <a href="#pilares">Características</a>
+                <a href="#beneficios">Beneficios</a>
+                <a href="#waitlist">Beta</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos y Condiciones</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <a href="mailto:hola@finwise.es">hola@finwise.es</a>
+                <p>Barcelona, España</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Finwise. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll para los enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>                                
